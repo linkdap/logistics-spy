@@ -38,38 +38,50 @@ const edges = [
 
 let startingCountry = 'USA';
 
-const listOfCountries = (edges, startingCountry, destination) => {
-  //convert edges to adjacency list
-  const graph = buildGraph(edges);
-  //console.log(graph);
-  const visited = new Set([startingCountry]);
-  let trackCountries = {};
-
-  //store node in queue and distance from startingCountry
-  let queue = [[startingCountry, 0]]; //start is 0 edges from itself
-  //convert value entered to uppercase
+const breadthFirstSearch = (edges, startingCountry, destination) => {
+  //conversions: value entered to uppercase and edges to adjacency list
   destination = destination.toUpperCase();
-  //while queue is not empty, remove from front
-  while(queue.length > 0) {
-    //get current node and distance 
-    const [node, distance] = queue.shift();
-    //if node is destination, route found
-    if(node === destination) return trackCountries;
+  const graph = buildGraph(edges);
 
-    for(let neighbor of graph[node]) {
-      //check if neighbor has been visited
-      //add to queue if not visited and mark as visited
-      if(!visited.has(neighbor)) {
-        console.log(visited)
-        visited.add(neighbor);
-        queue.push([neighbor, distance + 1]);
-        //copy neighbor and distance + 1 into tracker object
-        trackCountries[distance] = neighbor;
-      }      
+  //declare object to count number of countries it takes to reach destination 
+  const numberOfCountries = {};
+
+  //startingCountry is 0 edges away from itself
+  numberOfCountries[startingCountry] = 0;
+
+  const queue = [];
+  //Map to keep track of visited countries
+  const visited = new Set();
+  const finalRoute = new Map();
+  
+  //immediately push startingCountry into queue and visited set
+  queue.push(startingCountry);
+  visited.add(startingCountry);
+  //while queue is not empty
+  while(queue.length > 0) {
+    //get current country
+    const currentCountry = queue.shift();
+    const borderingCountries = graph[currentCountry] || [];
+    
+    //if reach destination return count of countries it takes to get there
+    if(currentCountry === destination) {
+      //add destination to finalRoute 
+      return finalRoute.set(currentCountry,destination).keys();
+    }
+    
+    //loop through all possible adjacent countries to construct a route leading to the destination and account for already visited countries
+    for(let nextCountry of borderingCountries) {
+      if(!visited.has(nextCountry)) {
+        numberOfCountries[nextCountry] = numberOfCountries[currentCountry] + 1;
+        queue.push(nextCountry);
+        finalRoute.set(currentCountry, nextCountry);
+        //add nextCountry to visited
+        visited.add(nextCountry);
+      }
     }
   }
-  
-  return false;
+
+  return 'route to '.concat('\'', destination,'\'', ' not found').toUpperCase();
 };
 
 const buildGraph = (edges) => {
@@ -86,7 +98,14 @@ const buildGraph = (edges) => {
 }
 
 //tests
-console.log(listOfCountries(edges,startingCountry,'can'));
+console.log(breadthFirstSearch(edges,startingCountry,'can'));
+console.log(breadthFirstSearch(edges,startingCountry,'cri'));
+console.log(breadthFirstSearch(edges,startingCountry,'slv'));
+console.log(breadthFirstSearch(edges,startingCountry,'chr'));
+console.log(breadthFirstSearch(edges,startingCountry,'saturn'));
+
+
+
 
 function Home() {
   return (
