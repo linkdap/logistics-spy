@@ -102,3 +102,28 @@ dist
 
 # TernJS port file
 .tern-port
+# See https://help.github.com/ignore-files/ for more about ignoring files.
+
+#IDEs
+.vscode/
+.idea/
+
+# dependencies
+/node_modules
+
+# testing
+/coverage
+e2e/coverage
+.nyc_output/
+
+# production
+/build
+/dist
+
+# misc
+bower_components
+.DS_Store
+.env
+
+*.log
+.rpt2_cache
