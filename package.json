@@ -24,6 +24,7 @@
     "react-redux": "^7.2.6",
     "react-router": "^5.2.1",
     "react-router-dom": "^5.3.0",
+    "react-scripts": "^4.0.3",
     "redux": "^4.1.2",
     "redux-logger": "^3.0.6",
     "redux-observable": "^2.0.0",
@@ -32,6 +33,8 @@
     "styled-components": "^5.3.3"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "chr-ui-scripts start",
     "build": "chr-ui-scripts build",
     "test": "chr-ui-scripts test",
@@ -43,9 +46,7 @@
     "serve": "chr-ui-scripts serve",
     "docker:e2e:build": "chr-ui-scripts docker BUILD",
     "docker:e2e:run": "chr-ui-scripts docker RUN",
-    "docker:e2e:clean": "chr-ui-scripts docker CLEAN",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -b main -d build"
+    "docker:e2e:clean": "chr-ui-scripts docker CLEAN"
   },
   "eslintConfig": {
     "extends": "react-app"
