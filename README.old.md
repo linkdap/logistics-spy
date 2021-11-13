@@ -1,2 +1,19 @@
-# logistics-spy
-Web application that displays a list of countries you must travel through to get to a desired destination.
+#cra-template
+
+    ###Install Dependencies
+    ```
+    npm install
+    ```
+
+    ###Run Commands
+    ```
+    #start the website
+    npm run start
+
+    #run unit tests
+    npm run test
+
+    #run acceptance tests
+    npm run e2e
+    ```
+    

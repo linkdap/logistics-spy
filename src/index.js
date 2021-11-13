@@ -1,15 +1,17 @@
-import { getConfiguration } from '@chr/common-web-ui-configuration'
-import { createClient } from '@chr/common-web-ui-authentication';
-import { bootStrapAppAsync } from '@chr/common-ui-bootstrapper';
+import React from 'react';
+import ReactDOM from 'react-dom';
+import './index.css';
+import App from './App';
+import reportWebVitals from './reportWebVitals';
 
-export const index = (async () => {
-  const config = await getConfiguration();
+ReactDOM.render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>,
+  document.getElementById('root')
+);
 
-  const authClient = createClient(config);
-
-  await bootStrapAppAsync(authClient, async () => {
-    const { bootstrap } = await import('./bootstrap');
-    bootstrap(config, authClient);
-  });
-
-})();
+// If you want to start measuring performance in your app, pass a function
+// to log results (for example: reportWebVitals(console.log))
+// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
+reportWebVitals();

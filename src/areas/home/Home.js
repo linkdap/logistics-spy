@@ -1,4 +1,4 @@
-import './Home.scss';
+import './Home.css';
 import Countries from '../countryData/countriesForm';
 
 function Home() {
