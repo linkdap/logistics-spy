@@ -14,12 +14,12 @@ const edges = [
   ['CRI','PAN']
 ];
 
-
 let startingCountry = 'USA';
 
-const BreadthFirstSearch = (edges, startingCountry, destination) => {
+const breadthFirstSearch = (edges, startingCountry, destination) => {
   //conversions: value entered to uppercase and edges to adjacency list
   destination = destination.toUpperCase();
+  
   //handle nothing submits 
   
   const graph = buildGraph(edges);
@@ -34,7 +34,7 @@ const BreadthFirstSearch = (edges, startingCountry, destination) => {
   //Map to keep track of visited countries
   const visited = new Set();
   const finalRoute = new Map();
-  
+
   //immediately push startingCountry into queue and visited set
   queue.push(startingCountry);
   visited.add(startingCountry);
@@ -62,7 +62,7 @@ const BreadthFirstSearch = (edges, startingCountry, destination) => {
       }
     }
   }
-  return (<div>{'route to '.concat('\'', destination,'\'', ' not found').toUpperCase()}</div>);
+  return 'route to '.concat('\'', destination,'\'', ' not found').toUpperCase();;
 };
 
 const buildGraph = (edges) => {
@@ -75,37 +75,44 @@ const buildGraph = (edges) => {
     graph[a].push(b);
     graph[b].push(a);
   }
-  return (<div>{graph}</div>);
+  return graph;
 };
 
-const DisplayCountryForm = (props) => {
+function DisplayCountryForm() {
   const[userCountryCodeInput, setUserCountryCodeInput] = useState('')
-  //const[displayRoute, setDisplayRoute] = useState('');
-  //let driverDestination = userCountryCodeInput;
+  const[displayRoute, setDisplayRoute] = useState([]);
 
+  //get value from input field
   const handleSubmit = (e) => {
     e.preventDefault();
-    
-    //props.breadthFirstSearch(edges,startingCountry,userCountryCodeInput);
-    setUserCountryCodeInput('');
+    //clear field after submit
+    setUserCountryCodeInput('')
   }
 
-    return(
-        <>
-        <form onSubmit={handleSubmit}>
-                <fieldset>
-                    <legend>Enter a 3-Letter Country Code Below:</legend>
-                    <input 
-                      type="text" 
-                      required
-                      value={userCountryCodeInput}
-                      onChange={(e) => setUserCountryCodeInput(e.target.value)}
-                    />
-                    <button>Find Route</button>
-                </fieldset>
-            </form>
-        </>
-    )
+  const getDriverRoute = () => {
+    let cleanUp = Array.from(breadthFirstSearch(edges,startingCountry,userCountryCodeInput));
+    setDisplayRoute(cleanUp.join(', '));
+  }
+  
+  return (
+    <>
+      <form onClick={handleSubmit}>
+            <fieldset>
+                <legend>Enter a 3-Letter Country Code Below:</legend>
+                <input 
+                  shortname="shortname"
+                  type="text" 
+                  placeholder='NIC'
+                  required
+                  value={userCountryCodeInput}
+                  onChange={e => setUserCountryCodeInput(e.target.value)}
+                />
+                <button onClick={getDriverRoute}>Find Route</button>
+            </fieldset>
+        </form>
+        <p>Travel Route: {displayRoute}</p>
+      </>
+  );
 }
 
 export default DisplayCountryForm;
