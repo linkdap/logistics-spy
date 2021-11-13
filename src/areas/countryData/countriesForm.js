@@ -19,9 +19,6 @@ let startingCountry = 'USA';
 const breadthFirstSearch = (edges, startingCountry, destination) => {
   //conversions: value entered to uppercase and edges to adjacency list
   destination = destination.toUpperCase();
-  
-  //handle nothing submits 
-  
   const graph = buildGraph(edges);
 
   //declare object to count number of countries it takes to reach destination 
@@ -30,7 +27,9 @@ const breadthFirstSearch = (edges, startingCountry, destination) => {
   //startingCountry is 0 edges away from itself
   numberOfCountries[startingCountry] = 0;
 
+  //declare empty queue to shift first country into during checks
   const queue = [];
+
   //Map to keep track of visited countries
   const visited = new Set();
   const finalRoute = new Map();
