@@ -1,0 +1,32 @@
+{
+  "files": {
+    "static/css/0.5cbd10d4.chunk.css": "/logistics-spy/static/css/0.5cbd10d4.chunk.css",
+    "static/js/0.a6d626db.chunk.js": "/logistics-spy/static/js/0.a6d626db.chunk.js",
+    "static/js/0.a6d626db.chunk.js.map": "/logistics-spy/static/js/0.a6d626db.chunk.js.map",
+    "main.js": "/logistics-spy/static/js/main.d41f45a3.chunk.js",
+    "main.js.map": "/logistics-spy/static/js/main.d41f45a3.chunk.js.map",
+    "runtime-main.js": "/logistics-spy/static/js/runtime-main.ecf7ff70.js",
+    "runtime-main.js.map": "/logistics-spy/static/js/runtime-main.ecf7ff70.js.map",
+    "static/js/3.2b8c244b.chunk.js": "/logistics-spy/static/js/3.2b8c244b.chunk.js",
+    "static/js/3.2b8c244b.chunk.js.map": "/logistics-spy/static/js/3.2b8c244b.chunk.js.map",
+    "static/js/4.397116b8.chunk.js": "/logistics-spy/static/js/4.397116b8.chunk.js",
+    "static/js/4.397116b8.chunk.js.map": "/logistics-spy/static/js/4.397116b8.chunk.js.map",
+    "static/css/5.88acc73b.chunk.css": "/logistics-spy/static/css/5.88acc73b.chunk.css",
+    "static/js/5.5f0432fa.chunk.js": "/logistics-spy/static/js/5.5f0432fa.chunk.js",
+    "static/js/5.5f0432fa.chunk.js.map": "/logistics-spy/static/js/5.5f0432fa.chunk.js.map",
+    "static/js/6.eb02948e.chunk.js": "/logistics-spy/static/js/6.eb02948e.chunk.js",
+    "static/js/6.eb02948e.chunk.js.map": "/logistics-spy/static/js/6.eb02948e.chunk.js.map",
+    "index.html": "/logistics-spy/index.html",
+    "static/css/0.5cbd10d4.chunk.css.map": "/logistics-spy/static/css/0.5cbd10d4.chunk.css.map",
+    "static/css/5.88acc73b.chunk.css.map": "/logistics-spy/static/css/5.88acc73b.chunk.css.map",
+    "static/js/0.a6d626db.chunk.js.LICENSE.txt": "/logistics-spy/static/js/0.a6d626db.chunk.js.LICENSE.txt",
+    "static/js/3.2b8c244b.chunk.js.LICENSE.txt": "/logistics-spy/static/js/3.2b8c244b.chunk.js.LICENSE.txt",
+    "static/js/4.397116b8.chunk.js.LICENSE.txt": "/logistics-spy/static/js/4.397116b8.chunk.js.LICENSE.txt",
+    "static/media/index.scss": "/logistics-spy/static/media/glyphicons-halflings-regular.be810be3.woff2"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.ecf7ff70.js",
+    "static/js/4.397116b8.chunk.js",
+    "static/js/main.d41f45a3.chunk.js"
+  ]
+}

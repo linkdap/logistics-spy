@@ -17,6 +17,7 @@
     "@chr/web-components-labs": "^2.0.146",
     "@testing-library/jest-dom": "^5.15.0",
     "@testing-library/react": "^12.1.2",
+    "gh-pages": "^3.2.3",
     "react": "^17.0.2",
     "react-bootstrap": "^0.32.4",
     "react-dom": "^17.0.2",
@@ -42,7 +43,9 @@
     "serve": "chr-ui-scripts serve",
     "docker:e2e:build": "chr-ui-scripts docker BUILD",
     "docker:e2e:run": "chr-ui-scripts docker RUN",
-    "docker:e2e:clean": "chr-ui-scripts docker CLEAN"
+    "docker:e2e:clean": "chr-ui-scripts docker CLEAN",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -b main -d build"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -64,5 +67,5 @@
     "reportFile": "genericcoverage.xml",
     "sonar56x": true
   },
-  "homepage": "."
+  "homepage": "https://linkdap.github.io/logistics-spy/"
 }
