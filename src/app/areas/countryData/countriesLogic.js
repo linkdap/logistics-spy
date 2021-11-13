@@ -1,6 +1,4 @@
-//import logo from './logo.svg';
-import './Home.scss';
-import CountriesForm from '../countryData/countriesForm';
+
 /*
 function Home() {
   return (
@@ -23,7 +21,9 @@ function Home() {
   );
 }
 */
-/*
+
+import { useState } from "react";
+
 const edges = [
   ['CAN','USA'],
   ['USA','MEX'],
@@ -38,11 +38,14 @@ const edges = [
   ['CRI','PAN']
 ];
 
+
 let startingCountry = 'USA';
 
 const breadthFirstSearch = (edges, startingCountry, destination) => {
   //conversions: value entered to uppercase and edges to adjacency list
   destination = destination.toUpperCase();
+  //handle nothing submits 
+  
   const graph = buildGraph(edges);
 
   //declare object to count number of countries it takes to reach destination 
@@ -99,27 +102,14 @@ const buildGraph = (edges) => {
   return graph;
 };
 
-//tests
-console.log(breadthFirstSearch(edges,startingCountry,'can'));
-console.log(breadthFirstSearch(edges,startingCountry,'cri'));
-console.log(breadthFirstSearch(edges,startingCountry,'slv'));
-console.log(breadthFirstSearch(edges,startingCountry,'chr'));
-console.log(breadthFirstSearch(edges,startingCountry,'saturn'));
-//console.log(breadthFirstSearch(edges,startingCountry,123)); //breaks app, need to handle numbers
-*/
-function Home() {
-  return (
-    <div className='App'>
-      <header className='App-header'>
-        <h1>
-          Logistics Spy
-        </h1>
-      </header>
-      <main>
-        <CountriesForm/>
-      </main>
-    </div>
-  );
-}
+const displayCountryRoutes = (props) => {
+    const[userCountryCodeInput, setUserCountryCodeInput] = useState('')
 
-export default Home;
+    return (
+            <>
+            
+            </>
+    );
+};
+
+export default displayCountryRoutes;

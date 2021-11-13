@@ -1,29 +1,5 @@
-//import logo from './logo.svg';
-import './Home.scss';
-import CountriesForm from '../countryData/countriesForm';
-/*
-function Home() {
-  return (
-    <div className='App'>
-      <header className='App-header'>
-        <img src={logo} className='App-logo' alt='logo' />
-        <p>
-          Edit <code>src/app/areas/home/Home.js</code> and save to reload.
-        </p>
-        <a
-          className='App-link'
-          href='https://reactjs.org'
-          target='_blank'
-          rel='noopener noreferrer'
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
-*/
-/*
+import { useState } from "react";
+
 const edges = [
   ['CAN','USA'],
   ['USA','MEX'],
@@ -38,11 +14,14 @@ const edges = [
   ['CRI','PAN']
 ];
 
+
 let startingCountry = 'USA';
 
-const breadthFirstSearch = (edges, startingCountry, destination) => {
+const BreadthFirstSearch = (edges, startingCountry, destination) => {
   //conversions: value entered to uppercase and edges to adjacency list
   destination = destination.toUpperCase();
+  //handle nothing submits 
+  
   const graph = buildGraph(edges);
 
   //declare object to count number of countries it takes to reach destination 
@@ -83,7 +62,7 @@ const breadthFirstSearch = (edges, startingCountry, destination) => {
       }
     }
   }
-  return 'route to '.concat('\'', destination,'\'', ' not found').toUpperCase();
+  return (<div>{'route to '.concat('\'', destination,'\'', ' not found').toUpperCase()}</div>);
 };
 
 const buildGraph = (edges) => {
@@ -96,30 +75,37 @@ const buildGraph = (edges) => {
     graph[a].push(b);
     graph[b].push(a);
   }
-  return graph;
+  return (<div>{graph}</div>);
 };
 
-//tests
-console.log(breadthFirstSearch(edges,startingCountry,'can'));
-console.log(breadthFirstSearch(edges,startingCountry,'cri'));
-console.log(breadthFirstSearch(edges,startingCountry,'slv'));
-console.log(breadthFirstSearch(edges,startingCountry,'chr'));
-console.log(breadthFirstSearch(edges,startingCountry,'saturn'));
-//console.log(breadthFirstSearch(edges,startingCountry,123)); //breaks app, need to handle numbers
-*/
-function Home() {
-  return (
-    <div className='App'>
-      <header className='App-header'>
-        <h1>
-          Logistics Spy
-        </h1>
-      </header>
-      <main>
-        <CountriesForm/>
-      </main>
-    </div>
-  );
+const DisplayCountryForm = (props) => {
+  const[userCountryCodeInput, setUserCountryCodeInput] = useState('')
+  //const[displayRoute, setDisplayRoute] = useState('');
+  //let driverDestination = userCountryCodeInput;
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    
+    //props.breadthFirstSearch(edges,startingCountry,userCountryCodeInput);
+    setUserCountryCodeInput('');
+  }
+
+    return(
+        <>
+        <form onSubmit={handleSubmit}>
+                <fieldset>
+                    <legend>Enter a 3-Letter Country Code Below:</legend>
+                    <input 
+                      type="text" 
+                      required
+                      value={userCountryCodeInput}
+                      onChange={(e) => setUserCountryCodeInput(e.target.value)}
+                    />
+                    <button>Find Route</button>
+                </fieldset>
+            </form>
+        </>
+    )
 }
 
-export default Home;
+export default DisplayCountryForm;
