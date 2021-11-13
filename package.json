@@ -3,53 +3,29 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@chr/autoStyle": "^1.3.199",
-    "@chr/common-http-interceptors-rxjs": "^2.0.14",
-    "@chr/common-javascript-logging-core": "^1.0.16",
-    "@chr/common-javascript-logging-error-boundary": "^1.0.25",
-    "@chr/common-javascript-logging-redux-middleware": "^1.0.16",
-    "@chr/common-ui-bootstrapper": "^1.0.28",
-    "@chr/common-ui-scripts": "^5.0.288",
-    "@chr/common-web-ui-ajax-client": "^3.0.27",
-    "@chr/common-web-ui-authentication": "^4.0.75",
-    "@chr/common-web-ui-configuration": "^1.0.30",
-    "@chr/web-components": "^2.0.41",
-    "@chr/web-components-labs": "^2.0.146",
     "@testing-library/jest-dom": "^5.15.0",
-    "@testing-library/react": "^12.1.2",
+    "@testing-library/react": "^11.2.7",
+    "@testing-library/user-event": "^12.8.3",
     "gh-pages": "^3.2.3",
     "react": "^17.0.2",
-    "react-bootstrap": "^0.32.4",
     "react-dom": "^17.0.2",
-    "react-redux": "^7.2.6",
-    "react-router": "^5.2.1",
-    "react-router-dom": "^5.3.0",
+    "react-router-dom": "^6.0.2",
     "react-scripts": "^4.0.3",
-    "redux": "^4.1.2",
-    "redux-logger": "^3.0.6",
-    "redux-observable": "^2.0.0",
-    "rxjs": "^7.4.0",
-    "rxjs-compat": "^6.6.7",
-    "styled-components": "^5.3.3"
+    "web-vitals": "^1.1.2"
   },
   "scripts": {
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
-    "start": "chr-ui-scripts start",
-    "build": "chr-ui-scripts build",
-    "test": "chr-ui-scripts test",
-    "eject": "react-scripts eject",
-    "test:coverage": "chr-ui-scripts test -- --coverage",
-    "clean": "chr-ui-scripts clean",
-    "e2e": "chr-ui-scripts e2e",
-    "e2e:debug": "node --inspect-brk ./node_modules/@chr/common-ui-scripts/scripts/e2e --runInBand",
-    "serve": "chr-ui-scripts serve",
-    "docker:e2e:build": "chr-ui-scripts docker BUILD",
-    "docker:e2e:run": "chr-ui-scripts docker RUN",
-    "docker:e2e:clean": "chr-ui-scripts docker CLEAN"
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
   },
   "eslintConfig": {
-    "extends": "react-app"
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
   },
   "browserslist": {
     "production": [
@@ -61,12 +37,7 @@
       "last 1 chrome version",
       "last 1 firefox version",
       "last 1 safari version"
-    ]
-  },
-  "jestSonar": {
-    "reportPath": "coverage",
-    "reportFile": "genericcoverage.xml",
-    "sonar56x": true
-  },
-  "homepage": "https://linkdap.github.io/logistics-spy/"
+    ],
+    "homepage": "https://linkdap.github.io/logistics-spy/"
+  }
 }
