@@ -15,6 +15,7 @@ const edges = [
 ];
 
 let startingCountry = 'USA';
+let isValid = false;
 
 const breadthFirstSearch = (edges, startingCountry, destination) => {
   //conversions: value entered to uppercase and edges to adjacency list
@@ -46,7 +47,8 @@ const breadthFirstSearch = (edges, startingCountry, destination) => {
     
     //if reach destination return count of countries it takes to get there
     if(currentCountry === destination) {
-      //add destination to finalRoute and return all countries in final route
+      //add destination to finalRoute and return all countries in final route and set isValue true
+      isValid = true;
       return finalRoute.set(currentCountry,destination).keys();
     }
     
@@ -88,11 +90,16 @@ function DisplayCountryForm() {
     setUserCountryCodeInput('')
   }
 
-  const getDriverRoute = () => {
+  const getDriverRouteComma = () => {
     let cleanUp = Array.from(breadthFirstSearch(edges,startingCountry,userCountryCodeInput));
     setDisplayRoute(cleanUp.join(', '));
   }
-  
+
+  const getDriverRouteNoComma = () => {
+    let cleanUp = Array.from(breadthFirstSearch(edges,startingCountry,userCountryCodeInput));
+    setDisplayRoute(cleanUp.join(''));
+  }
+
   return (
     <>
       <form onClick={handleSubmit}>
@@ -106,7 +113,7 @@ function DisplayCountryForm() {
                   value={userCountryCodeInput}
                   onChange={e => setUserCountryCodeInput(e.target.value)}
                 />
-                <button onClick={getDriverRoute}>Find Route</button>
+                <button onClick={isValid === true ? getDriverRouteComma : getDriverRouteNoComma}>Find Route</button>
             </fieldset>
         </form>
         <p>Travel Route: {displayRoute}</p>
